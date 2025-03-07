@@ -8,7 +8,7 @@ Bullet::Bullet(Transform* transform)
 	transform->SetTag("Arrow_0");
 	transform->Load();
 }
-
+//asdawdsac
 Bullet::~Bullet()
 {	
 }
