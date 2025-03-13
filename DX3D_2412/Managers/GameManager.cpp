@@ -21,6 +21,7 @@
 #include "Scenes/MapEditorScene.h"
 #include "Scenes/AStarScene.h"
 #include "Scenes/RenderTargetScene.h"
+#include "Scenes/OutlineScene.h"
 
 GameManager::GameManager()
 {
@@ -30,7 +31,7 @@ GameManager::GameManager()
 	//SCENE->Create("Start", new SpawnScene());
 	//SCENE->Create("Start", new CollisionScene());
 	//SCENE->Create("Start", new ShootingScene());
-	SCENE->Create("Start", new MineCraftScene());
+	//SCENE->Create("Start", new MineCraftScene());
 	//SCENE->Create("Start", new LightScene());
 	//SCENE->Create("Start", new TerrainScene());
 	//SCENE->Create("Start", new CubeMapEditorScene());
@@ -43,7 +44,7 @@ GameManager::GameManager()
 	//SCENE->Create("Start", new MapEditorScene());
 	//SCENE->Create("Start", new AStarScene());
 	//SCENE->Create("Start", new RenderTargetScene());
-	
+	SCENE->Create("Start", new OutlineScene());	
 
 	SCENE->Add("Grid");
 	SCENE->Add("Start");
