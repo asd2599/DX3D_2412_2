@@ -12,6 +12,7 @@ public:
 	void Update();
 	void Render();
 	void PostRender();
+	void Edit();
 
 	void CreateBlocks(UINT width, UINT height);
 
@@ -34,4 +35,6 @@ private:
 
 	unordered_map<int, OreData> oreDatas;
 	unordered_map<int, CraftData> craftDatas;	
+
+	int drawCount = 0;
 };

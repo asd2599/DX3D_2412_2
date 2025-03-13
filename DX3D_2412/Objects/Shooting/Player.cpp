@@ -6,10 +6,10 @@ Player::Player()
 
 	localPosition.y = radius;	
 
-	//clientCenterPos = { SCREEN_WIDTH >> 1, SCREEN_HEIGHT >> 1 };
-	//ClientToScreen(hWnd, &clientCenterPos);
-	//SetCursorPos(clientCenterPos.x, clientCenterPos.y);	
-	//ShowCursor(false);	
+	clientCenterPos = { SCREEN_WIDTH >> 1, SCREEN_HEIGHT >> 1 };
+	ClientToScreen(hWnd, &clientCenterPos);
+	SetCursorPos(clientCenterPos.x, clientCenterPos.y);	
+	ShowCursor(false);	
 
 	CreateBullets();
 
@@ -25,8 +25,8 @@ Player::Player()
 	light->inner = 30.0f;
 	light->outer = 35.0f;
 
-	CAM->SetTarget(this);
-	CAM->TargetOptionLoad("ShootingView");
+	//CAM->SetTarget(this);
+	//CAM->TargetOptionLoad("ShootingView");
 }
 
 Player::~Player()
@@ -42,12 +42,12 @@ void Player::Update()
 	light->position = localPosition;
 	light->direction = GetForward();
 
-	//SetCursor();
+	SetCursor();
 	Control();
 	Fire();
 	Jump();
 	Move();
-	Rotate();
+	//Rotate();
 
 	UpdateWorld();	
 
@@ -69,23 +69,32 @@ void Player::Control()
 {
 	Vector3 dir;
 
-	if (KEY->Press('W'))
+	/*if (KEY->Press('W'))
 		dir += Vector3::Forward();
 	if (KEY->Press('S'))
 		dir += Vector3::Back();
 	if (KEY->Press('A'))
 		dir += Vector3::Left();
 	if (KEY->Press('D'))
-		dir += Vector3::Right();
+		dir += Vector3::Right();*/
+
+	if (KEY->Press('W'))
+		dir += GetForward();
+	if (KEY->Press('S'))
+		dir += GetBack();
+	if (KEY->Press('A'))
+		dir += GetLeft();
+	if (KEY->Press('D'))
+		dir += GetRight();
 
 	dir.Normalize();
 
 	velocity.x = dir.x;
 	velocity.z = dir.z;	
 
-	//Vector3 delta = mousePos - CENTER;
-	//Rotate(Vector3::Up(), delta.x * rotSpeed * DELTA);
-	//CAM->Rotate(Vector3::Left(), delta.y * rotSpeed * DELTA);
+	Vector3 delta = mousePos - CENTER;
+	Rotate(Vector3::Up(), delta.x * rotSpeed * DELTA);
+	CAM->Rotate(Vector3::Left(), delta.y * rotSpeed * DELTA);
 
 	if (KEY->Down(VK_SPACE))
 	{
@@ -131,16 +140,16 @@ void Player::Move()
 	Translate(velocity * moveSpeed * DELTA);
 }
 
-void Player::Rotate()
-{
-	Vector3 screenPos = CAM->WorldToScreenPoint(localPosition);
-
-	Vector3 direction = (mousePos - screenPos).GetNormalized();
-
-	float angle = atan2(direction.x, direction.y);
-
-	localRotation.y = angle;
-}
+//void Player::Rotate()
+//{
+//	Vector3 screenPos = CAM->WorldToScreenPoint(localPosition);
+//
+//	Vector3 direction = (mousePos - screenPos).GetNormalized();
+//
+//	float angle = atan2(direction.x, direction.y);
+//
+//	localRotation.y = angle;
+//}
 
 void Player::CreateBullets()
 {
@@ -152,7 +161,7 @@ void Player::CreateBullets()
 
 void Player::SetCursor()
 {
-	//if(UIManager::Get()->)
+	//if(!UIManager::Get()->IsPopup())
 
 	SetCursorPos(clientCenterPos.x, clientCenterPos.y);
 }

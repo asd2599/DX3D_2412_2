@@ -120,6 +120,8 @@ typedef function<void(int)> IntParamEvent;
 #include "Framework/Render/Texture.h"
 #include "Framework/Render/Material.h"
 #include "Framework/Render/Mesh.h"
+#include "Framework/Render/DepthStencil.h"
+#include "Framework/Render/RenderTarget.h"
 
 #include "Framework/State/RasterizerState.h"
 #include "Framework/State/SamplerState.h"
@@ -150,6 +152,10 @@ typedef function<void(int)> IntParamEvent;
 #include "Objects/Collider/CapsuleCollider.h"
 #include "Objects/Collider/RectCollider.h"
 
+#include "Objects/Algorithm/Node.h"
+#include "Objects/Algorithm/Heap.h"
+#include "Objects/Algorithm/AStar.h"
+
 #include "Objects/UI/Button.h"
 #include "Objects/UI/ProgressBar.h"
 
@@ -160,6 +166,7 @@ typedef function<void(int)> IntParamEvent;
 #include "Objects/Manager/PoolingManager.h"
 
 #include "Objects/Test/Planet.h"
+#include "Objects/Test/TestModel.h"
 
 #include "Objects/Shooting/Bullet.h"
 #include "Objects/Shooting/BulletManager.h"
@@ -175,6 +182,8 @@ typedef function<void(int)> IntParamEvent;
 
 #include "Objects/Pacman/CubeMapEditor.h"
 #include "Objects/Pacman/MapManager.h"
+
+#include "Objects/Character/Ghost.h"
 
 //Manager Head
 #include "Scenes/Scene.h"

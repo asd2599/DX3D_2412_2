@@ -19,7 +19,7 @@ private:
 	void Fire();
 	void Jump();
 	void Move();
-	void Rotate();
+	//void Rotate();
 
 	void CreateBullets();
 

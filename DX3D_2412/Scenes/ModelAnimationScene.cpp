@@ -3,12 +3,12 @@
 
 ModelAnimationScene::ModelAnimationScene()
 {
-	model = new ModelAnimator("AFO");	
+	model = new ModelAnimator("Ghost");	
 	model->SetShader(L"Model/Model.hlsl");
-	//FOR(6)
-	//	model->ReadClip("Ghost_animation", i);
-	model->ReadClip("Idle");
-	model->ReadClip("Run");
+	FOR(6)
+		model->ReadClip("Ghost_animation", i);
+	//model->ReadClip("Idle");
+	//model->ReadClip("Run");
 	//model->ReadClip("Attack");
 	model->CreateTexture();
 }

@@ -22,6 +22,8 @@ public:
     void SetAlphaBlend(bool isAlpha);
     void SetAdditive();
 
+    void SetViewport(UINT width = SCREEN_WIDTH, UINT height = SCREEN_HEIGHT);
+
 private:
     void CreateState();
     void CreateUIBuffer();
@@ -41,6 +43,8 @@ private:
     RasterizerState* rasterizerState[2];
     BlendState* blendState[2];
     DepthStencilState* depthStencilState[2];
+
+    D3D11_VIEWPORT viewport;
 
     bool isWireFrame = false;
 };

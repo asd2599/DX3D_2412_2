@@ -14,6 +14,12 @@ public:
 
 private:
 	Player* player;
-
 	Skybox* skybox;
+		
+	RenderTarget* renderTarget;
+	DepthStencil* depthStencil;
+
+	Quad* quad;
+
+	FloatValueBuffer* valueBuffer;
 };
