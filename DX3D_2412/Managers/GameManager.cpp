@@ -17,8 +17,11 @@
 #include "Scenes/InstancingScene.h"
 #include "Scenes/ModelInstancingScene.h"
 #include "Scenes/ModelAnimationScene.h"
-//#include "Scenes/ModelEquipScene.h"
+#include "Scenes/ModelEquipScene.h"
 #include "Scenes/MapEditorScene.h"
+#include "Scenes/AStarScene.h"
+#include "Scenes/RenderTargetScene.h"
+#include "Scenes/OutlineScene.h"
 
 GameManager::GameManager()
 {
@@ -38,8 +41,10 @@ GameManager::GameManager()
 	//SCENE->Create("Start", new ModelInstancingScene());
 	//SCENE->Create("Start", new ModelAnimationScene());
 	//SCENE->Create("Start", new ModelEquipScene());
-	SCENE->Create("Start", new MapEditorScene());
-	
+	//SCENE->Create("Start", new MapEditorScene());
+	//SCENE->Create("Start", new AStarScene());
+	//SCENE->Create("Start", new RenderTargetScene());
+	SCENE->Create("Start", new OutlineScene());	
 
 	SCENE->Add("Grid");
 	SCENE->Add("Start");
@@ -69,6 +74,7 @@ void GameManager::Render()
 	Device::Get()->Clear();
 
 	Environment::Get()->SetRender();
+	Environment::Get()->SetViewport();
 	SCENE->Render();
 
 	ImGui_ImplDX11_NewFrame();

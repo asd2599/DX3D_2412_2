@@ -90,6 +90,15 @@ void Environment::SetAdditive()
     blendState[1]->SetState();
 }
 
+void Environment::SetViewport(UINT width, UINT height)
+{
+    viewport.Width = width;
+    viewport.Height = height;
+    viewport.MaxDepth = 1.0f;
+
+    DC->RSSetViewports(1, &viewport);
+}
+
 void Environment::CreateState()
 {
     samplerState = new SamplerState();

@@ -1,9 +1,9 @@
 #pragma once
 
-class TerrainEditor : public GameObject<VertexUVNormal>
+class TerrainEditor : public GameObject<VertexUVNormalAlpha>
 {
 private:
-    typedef VertexUVNormal VertexType;
+    typedef VertexUVNormalAlpha VertexType;
 
     const UINT MAX_SIZE = 256;
     const UINT MAX_HEIGHT = 20.0f;
@@ -40,7 +40,15 @@ private:
     void MakeComputeData();
 
     void AdjustHeight();
+    void AdjustAlpha();
 
+    void SaveHeightMap();
+    void LoadHeightMap();
+
+    void SaveAlphaMap();
+    void LoadAlphaMap();
+
+    void Resize();
     void UpdateHeight();
 
 private:

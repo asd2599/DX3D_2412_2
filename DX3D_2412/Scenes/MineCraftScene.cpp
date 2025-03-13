@@ -13,6 +13,20 @@ MineCraftScene::MineCraftScene()
 	CAM->TargetOptionLoad("FPSMode");
 
 	skybox = new Skybox(L"Resources/Textures/Landscape/Snow_ENV.dds");
+
+	renderTarget = new RenderTarget();
+	depthStencil = new DepthStencil();
+
+	Texture* texture = Texture::Add(L"Target", renderTarget->GetSRV());
+	quad = new Quad(Vector3(SCREEN_WIDTH, SCREEN_HEIGHT));
+	quad->GetMaterial()->SetShader(L"PostEffect/RadialBlur.hlsl");
+	quad->GetMaterial()->SetDiffuseMap(texture);
+	quad->SetLocalPosition(CENTER);
+	quad->UpdateWorld();
+
+	valueBuffer = new FloatValueBuffer();
+	//valueBuffer->Get()[1] = SCREEN_WIDTH;
+	//valueBuffer->Get()[2] = SCREEN_HEIGHT;
 }
 
 MineCraftScene::~MineCraftScene()
@@ -21,6 +35,13 @@ MineCraftScene::~MineCraftScene()
 	UIManager::Delete();
 
 	delete player;
+
+	delete renderTarget;
+	delete depthStencil;
+
+	delete quad;
+
+	delete valueBuffer;
 }
 
 void MineCraftScene::Update()
@@ -50,25 +71,34 @@ void MineCraftScene::Update()
 
 void MineCraftScene::PreRender()
 {
+	renderTarget->Set(depthStencil);
+
+	skybox->Render();
+	BlockManager::Get()->Render();
+	player->Render();
 }
 
 void MineCraftScene::Render()
 {
-	skybox->Render();
-
-	BlockManager::Get()->Render();
-
-	player->Render();	
+	
 }
 
 void MineCraftScene::PostRender()
 {
-	//BlockManager::Get()->PostRender();
+	valueBuffer->SetPS(10);
+	quad->Render();
+
+	BlockManager::Get()->PostRender();
 	UIManager::Get()->Render();
 	player->PostRender();	
 }
 
 void MineCraftScene::GUIRender()
 {
+	ImGui::DragFloat("Value", &valueBuffer->Get()[0]);
+	ImGui::DragFloat("Value1", &valueBuffer->Get()[1]);
+	ImGui::DragFloat("Value2", &valueBuffer->Get()[2]);
+
 	UIManager::Get()->Edit();
+	BlockManager::Get()->Edit();
 }

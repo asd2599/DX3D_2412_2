@@ -41,9 +41,18 @@ float4 BrushColor(float3 pos)
     return float4(0, 0, 0, 0);
 }
 
+Texture2D secondMap : register(t11);
+Texture2D thirdMap : register(t12);
+
 float4 PS(LightPixelInput input) : SV_TARGET //->SV->OM
 {
     Material material = GetMaterial(input);
+    
+    float4 second = secondMap.Sample(samp, input.uv);
+    float4 third = thirdMap.Sample(samp, input.uv);
+    
+    material.baseColor = lerp(material.baseColor, second, input.tangent.x);
+    material.baseColor = lerp(material.baseColor, third, input.tangent.y);
     
     float4 ambient = CalcAmbient(material);
     

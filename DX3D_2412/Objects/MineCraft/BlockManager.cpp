@@ -20,14 +20,32 @@ void BlockManager::Update()
 
 void BlockManager::Render()
 {
+    drawCount = 0;
+
     for (Cube* block : blocks)
-        block->Render();
+    {
+        //if (CAM->ContainPoint(block->GetLocalPosition()))
+        if (CAM->ContainSphere(block->GetLocalPosition(), 0.5f))
+        {
+            drawCount++;
+            block->Render();
+        }
+    }
 }
 
 void BlockManager::PostRender()
 {
-    //for (Block* block : blocks)
-    //    block->PostRender();
+    for (Block* block : blocks)
+    {
+        if (CAM->ContainPoint(block->GetLocalPosition()))
+            block->PostRender();
+    }
+}
+
+void BlockManager::Edit()
+{
+    string str = "DrawCount : " + to_string(drawCount);
+    ImGui::Text(str.c_str());
 }
 
 void BlockManager::CreateBlocks(UINT width, UINT height)
