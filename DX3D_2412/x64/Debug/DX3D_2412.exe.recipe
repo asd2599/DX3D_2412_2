@@ -2,78 +2,81 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\admin\Documents\Kim\DirectX\DX3D_2412\x64\Debug\DX3D_2412.exe</FullPath>
+      <FullPath>C:\DX3D\DX3D_2412_2\x64\Debug\DX3D_2412.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles>
     <ContentFile>
-      <FullPath>C:\Users\admin\Documents\Kim\DirectX\DX3D_2412\x64\Debug\Collider.cso</FullPath>
+      <FullPath>C:\DX3D\DX3D_2412_2\x64\Debug\Collider.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\admin\Documents\Kim\DirectX\DX3D_2412\x64\Debug\Grid.cso</FullPath>
+      <FullPath>C:\DX3D\DX3D_2412_2\x64\Debug\Grid.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\admin\Documents\Kim\DirectX\DX3D_2412\x64\Debug\Texture.cso</FullPath>
+      <FullPath>C:\DX3D\DX3D_2412_2\x64\Debug\Texture.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\admin\Documents\Kim\DirectX\DX3D_2412\x64\Debug\ByteAddress.cso</FullPath>
+      <FullPath>C:\DX3D\DX3D_2412_2\x64\Debug\ByteAddress.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\admin\Documents\Kim\DirectX\DX3D_2412\x64\Debug\ComputePicking.cso</FullPath>
+      <FullPath>C:\DX3D\DX3D_2412_2\x64\Debug\ComputePicking.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\admin\Documents\Kim\DirectX\DX3D_2412\x64\Debug\MapEditor.cso</FullPath>
+      <FullPath>C:\DX3D\DX3D_2412_2\x64\Debug\MapEditor.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\admin\Documents\Kim\DirectX\DX3D_2412\x64\Debug\Preview.cso</FullPath>
+      <FullPath>C:\DX3D\DX3D_2412_2\x64\Debug\Preview.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\admin\Documents\Kim\DirectX\DX3D_2412\x64\Debug\UnitOpaque.cso</FullPath>
+      <FullPath>C:\DX3D\DX3D_2412_2\x64\Debug\UnitOpaque.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\admin\Documents\Kim\DirectX\DX3D_2412\x64\Debug\ModelInstancing.cso</FullPath>
+      <FullPath>C:\DX3D\DX3D_2412_2\x64\Debug\ModelInstancing.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\admin\Documents\Kim\DirectX\DX3D_2412\x64\Debug\UnlitInstancing.cso</FullPath>
+      <FullPath>C:\DX3D\DX3D_2412_2\x64\Debug\UnlitInstancing.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\admin\Documents\Kim\DirectX\DX3D_2412\x64\Debug\Skybox.cso</FullPath>
+      <FullPath>C:\DX3D\DX3D_2412_2\x64\Debug\Skybox.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\admin\Documents\Kim\DirectX\DX3D_2412\x64\Debug\Terrain.cso</FullPath>
+      <FullPath>C:\DX3D\DX3D_2412_2\x64\Debug\Terrain.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\admin\Documents\Kim\DirectX\DX3D_2412\x64\Debug\TerrainEditor.cso</FullPath>
+      <FullPath>C:\DX3D\DX3D_2412_2\x64\Debug\TerrainEditor.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\admin\Documents\Kim\DirectX\DX3D_2412\x64\Debug\Light.cso</FullPath>
+      <FullPath>C:\DX3D\DX3D_2412_2\x64\Debug\Light.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\admin\Documents\Kim\DirectX\DX3D_2412\x64\Debug\LightTransparent.cso</FullPath>
+      <FullPath>C:\DX3D\DX3D_2412_2\x64\Debug\LightTransparent.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\admin\Documents\Kim\DirectX\DX3D_2412\x64\Debug\Model.cso</FullPath>
+      <FullPath>C:\DX3D\DX3D_2412_2\x64\Debug\Model.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\admin\Documents\Kim\DirectX\DX3D_2412\x64\Debug\Blur.cso</FullPath>
+      <FullPath>C:\DX3D\DX3D_2412_2\x64\Debug\Blur.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\admin\Documents\Kim\DirectX\DX3D_2412\x64\Debug\Grayscale.cso</FullPath>
+      <FullPath>C:\DX3D\DX3D_2412_2\x64\Debug\Grayscale.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\admin\Documents\Kim\DirectX\DX3D_2412\x64\Debug\Mosaic.cso</FullPath>
+      <FullPath>C:\DX3D\DX3D_2412_2\x64\Debug\Mosaic.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\admin\Documents\Kim\DirectX\DX3D_2412\x64\Debug\RadialBlur.cso</FullPath>
+      <FullPath>C:\DX3D\DX3D_2412_2\x64\Debug\Outline.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\admin\Documents\Kim\DirectX\DX3D_2412\x64\Debug\Sepia.cso</FullPath>
+      <FullPath>C:\DX3D\DX3D_2412_2\x64\Debug\RadialBlur.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\admin\Documents\Kim\DirectX\DX3D_2412\x64\Debug\Tutorial.cso</FullPath>
+      <FullPath>C:\DX3D\DX3D_2412_2\x64\Debug\Sepia.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>C:\Users\admin\Documents\Kim\DirectX\DX3D_2412\x64\Debug\ProgressBar.cso</FullPath>
+      <FullPath>C:\DX3D\DX3D_2412_2\x64\Debug\Tutorial.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\DX3D\DX3D_2412_2\x64\Debug\ProgressBar.cso</FullPath>
     </ContentFile>
   </ContentFiles>
   <SatelliteDlls />

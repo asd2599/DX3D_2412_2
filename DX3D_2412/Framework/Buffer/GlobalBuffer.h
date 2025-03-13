@@ -84,6 +84,19 @@ private:
     float values[4] = {};
 };
 
+class OutlineBuffer : public ConstBuffer
+{
+public:
+    OutlineBuffer() : ConstBuffer(values, sizeof(float) * 4)
+    {
+    }
+
+    float* Get() { return values; }
+
+private:
+    float values[4] = {};
+};
+
 class LightBuffer : public ConstBuffer
 {
 public:

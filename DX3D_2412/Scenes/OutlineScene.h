@@ -19,4 +19,6 @@ private:
 	DepthStencil* depthStencil;
 
 	Quad* quad;
+
+	OutlineBuffer* outlineBuffer;
 };

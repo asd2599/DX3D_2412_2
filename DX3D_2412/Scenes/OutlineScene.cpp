@@ -3,10 +3,10 @@
 
 OutlineScene::OutlineScene()
 {
-    testModel = new TestModel();
+	testModel = new TestModel();
 
-    renderTarget = new RenderTarget();
-    depthStencil = new DepthStencil();
+	renderTarget = new RenderTarget();
+	depthStencil = new DepthStencil();
 
 	Texture* texture = Texture::Add(L"Target", renderTarget->GetSRV());
 	quad = new Quad(Vector3(SCREEN_WIDTH, SCREEN_HEIGHT));
@@ -14,6 +14,10 @@ OutlineScene::OutlineScene()
 	quad->GetMaterial()->SetDiffuseMap(texture);
 	quad->SetLocalPosition(CENTER);
 	quad->UpdateWorld();
+
+	outlineBuffer = new OutlineBuffer();
+	outlineBuffer->Get()[0] = SCREEN_WIDTH;
+	outlineBuffer->Get()[1] = SCREEN_HEIGHT;
 }
 
 OutlineScene::~OutlineScene()
@@ -24,6 +28,7 @@ OutlineScene::~OutlineScene()
 	delete depthStencil;
 
 	delete quad;
+	delete outlineBuffer;
 }
 
 void OutlineScene::Update()
@@ -44,6 +49,7 @@ void OutlineScene::Render()
 
 void OutlineScene::PostRender()
 {	
+	outlineBuffer->SetPS(11);
 	quad->Render();
 }
 

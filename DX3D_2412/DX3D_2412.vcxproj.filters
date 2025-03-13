@@ -330,6 +330,9 @@
     <ClInclude Include="Framework\Render\RenderTarget.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Scenes\OutlineScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DX3D_2412.cpp">
@@ -611,6 +614,9 @@
     <ClCompile Include="Framework\Render\RenderTarget.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Scenes\OutlineScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX3D_2412.rc">
@@ -649,6 +655,7 @@
     <FxCompile Include="Resources\Shaders\PostEffect\Mosaic.hlsl" />
     <FxCompile Include="Resources\Shaders\PostEffect\Blur.hlsl" />
     <FxCompile Include="Resources\Shaders\PostEffect\RadialBlur.hlsl" />
+    <FxCompile Include="Resources\Shaders\PostEffect\Outline.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Shaders\VertexHeader.hlsli" />
