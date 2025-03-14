@@ -13,6 +13,7 @@ public:
     void SetPixelShader(wstring shaderFile);
 
 private:
+    Skybox* skybox;
     Sphere* sphere;
     Model* model;
     ModelAnimator* animator;

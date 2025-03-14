@@ -251,6 +251,8 @@ void ModelAnimator::UpdateFrame(Motion* motion)
             ++frame->curFrame %= clip->frameCount - 1;
             frame->time -= 1.0f;
         }
+
+        clip->Excute();
     }
 
     {

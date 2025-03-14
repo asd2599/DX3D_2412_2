@@ -333,6 +333,18 @@
     <ClInclude Include="Scenes\OutlineScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Scenes\WaterScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Environment\Reflection.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Environment\Refraction.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\Landscape\Water.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DX3D_2412.cpp">
@@ -617,6 +629,18 @@
     <ClCompile Include="Scenes\OutlineScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Scenes\WaterScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Environment\Reflection.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Environment\Refraction.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\Landscape\Water.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX3D_2412.rc">
@@ -655,6 +679,10 @@
     <FxCompile Include="Resources\Shaders\PostEffect\Mosaic.hlsl" />
     <FxCompile Include="Resources\Shaders\PostEffect\Blur.hlsl" />
     <FxCompile Include="Resources\Shaders\PostEffect\RadialBlur.hlsl" />
+    <FxCompile Include="Resources\Shaders\PostEffect\Outline.hlsl" />
+    <FxCompile Include="Resources\Shaders\Landscape\Reflection.hlsl" />
+    <FxCompile Include="Resources\Shaders\Landscape\Refraction.hlsl" />
+    <FxCompile Include="Resources\Shaders\Landscape\Water.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Shaders\VertexHeader.hlsli" />

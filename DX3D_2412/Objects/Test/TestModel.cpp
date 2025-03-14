@@ -16,6 +16,8 @@ TestModel::TestModel()
     animator->ReadClip("Ghost_animation", 3);
     animator->CreateTexture();
     animator->Load();
+
+    skybox = new Skybox(L"Resources/Textures/Landscape/Snow_ENV.dds");
 }
 
 TestModel::~TestModel()
@@ -23,6 +25,7 @@ TestModel::~TestModel()
     delete sphere;
     delete model;
     delete animator;
+    delete skybox;
 }
 
 void TestModel::Update()
@@ -34,6 +37,8 @@ void TestModel::Update()
 
 void TestModel::Render()
 {
+    skybox->Render();
+
     sphere->Render();
     model->Render();
     animator->Render();

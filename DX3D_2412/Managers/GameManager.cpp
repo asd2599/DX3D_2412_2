@@ -22,6 +22,7 @@
 #include "Scenes/AStarScene.h"
 #include "Scenes/RenderTargetScene.h"
 #include "Scenes/OutlineScene.h"
+#include "Scenes/WaterScene.h"
 
 GameManager::GameManager()
 {
@@ -44,9 +45,10 @@ GameManager::GameManager()
 	//SCENE->Create("Start", new MapEditorScene());
 	//SCENE->Create("Start", new AStarScene());
 	//SCENE->Create("Start", new RenderTargetScene());
-	SCENE->Create("Start", new OutlineScene());	
+	//SCENE->Create("Start", new OutlineScene());	
+	SCENE->Create("Start", new WaterScene());	
 
-	SCENE->Add("Grid");
+	//SCENE->Add("Grid");
 	SCENE->Add("Start");
 
 	Create();

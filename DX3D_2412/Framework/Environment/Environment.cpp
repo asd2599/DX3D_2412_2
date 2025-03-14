@@ -80,14 +80,14 @@ void Environment::Edit()
 
 void Environment::SetAlphaBlend(bool isAlpha)
 {
-    blendState[1]->Alpha(isAlpha);
-    blendState[1]->SetState();
+    blendState[2]->Alpha(isAlpha);
+    blendState[2]->SetState();
 }
 
 void Environment::SetAdditive()
 {
-    blendState[1]->Additive();
-    blendState[1]->SetState();
+    blendState[2]->Additive();
+    blendState[2]->SetState();
 }
 
 void Environment::SetViewport(UINT width, UINT height)
@@ -111,6 +111,7 @@ void Environment::CreateState()
     blendState[0] = new BlendState();
     blendState[1] = new BlendState();
     blendState[1]->Alpha(true);
+    blendState[2] = new BlendState();
 
     depthStencilState[0] = new DepthStencilState();
     depthStencilState[1] = new DepthStencilState();

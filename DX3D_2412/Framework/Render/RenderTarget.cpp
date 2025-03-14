@@ -17,6 +17,9 @@ RenderTarget::~RenderTarget()
 
 void RenderTarget::Set(DepthStencil* depthStencil, Float4 clearColor)
 {
+    ID3D11ShaderResourceView* srv = nullptr;
+    DC->PSSetShaderResources(0, 1, &srv);
+
     DC->OMSetRenderTargets(1, &rtv, depthStencil->GetDSV());
 
     DC->ClearRenderTargetView(rtv, (float*)&clearColor);
@@ -70,7 +73,7 @@ void RenderTarget::CreateSRV()
     D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
     srvDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
     srvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
-    srvDesc.Texture2DArray.MipLevels = 1;
+    srvDesc.Texture2D.MipLevels = 1;
 
     DEVICE->CreateShaderResourceView(rtvTexture, &srvDesc, &srv);
 }

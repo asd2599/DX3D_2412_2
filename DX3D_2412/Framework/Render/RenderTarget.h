@@ -6,7 +6,7 @@ public:
     RenderTarget(UINT width = SCREEN_WIDTH, UINT height = SCREEN_HEIGHT);
     ~RenderTarget();
 
-    void Set(DepthStencil* depthStencil, Float4 clearColor = Float4(1, 1, 1, 1));
+    void Set(DepthStencil* depthStencil, Float4 clearColor = Float4(0, 0, 0, 0));
 
     ID3D11RenderTargetView*& GetRTV() { return rtv; }
     ID3D11ShaderResourceView*& GetSRV() { return srv; }

@@ -16,6 +16,8 @@ public:
 	void Render();	
 	void Edit();
 
+	void RenderSelectBlock();
+
 	void Mining();
 	void Build();
 

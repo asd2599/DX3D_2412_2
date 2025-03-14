@@ -62,6 +62,12 @@ void UIManager::Edit()
 	inventory->Edit();
 }
 
+void UIManager::RenderSelectBlock()
+{
+	if (selectBlock)
+		selectBlock->Render();
+}
+
 void UIManager::Mining()
 {
 	if (selectBlock == nullptr) return;	

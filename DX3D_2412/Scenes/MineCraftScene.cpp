@@ -19,14 +19,15 @@ MineCraftScene::MineCraftScene()
 
 	Texture* texture = Texture::Add(L"Target", renderTarget->GetSRV());
 	quad = new Quad(Vector3(SCREEN_WIDTH, SCREEN_HEIGHT));
-	quad->GetMaterial()->SetShader(L"PostEffect/RadialBlur.hlsl");
+	quad->GetMaterial()->SetShader(L"PostEffect/Outline.hlsl");
 	quad->GetMaterial()->SetDiffuseMap(texture);
+	quad->GetMaterial()->GetData()->diffuse = { 0, 1, 0, 1 };
 	quad->SetLocalPosition(CENTER);
 	quad->UpdateWorld();
 
 	valueBuffer = new FloatValueBuffer();
-	//valueBuffer->Get()[1] = SCREEN_WIDTH;
-	//valueBuffer->Get()[2] = SCREEN_HEIGHT;
+	valueBuffer->Get()[1] = SCREEN_WIDTH;
+	valueBuffer->Get()[2] = SCREEN_HEIGHT;
 }
 
 MineCraftScene::~MineCraftScene()
@@ -71,16 +72,16 @@ void MineCraftScene::Update()
 
 void MineCraftScene::PreRender()
 {
-	renderTarget->Set(depthStencil);
-
-	skybox->Render();
-	BlockManager::Get()->Render();
-	player->Render();
+	renderTarget->Set(depthStencil);	
+	
+	UIManager::Get()->RenderSelectBlock();
 }
 
 void MineCraftScene::Render()
 {
-	
+	skybox->Render();
+	BlockManager::Get()->Render();
+	//player->Render();
 }
 
 void MineCraftScene::PostRender()

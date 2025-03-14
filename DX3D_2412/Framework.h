@@ -130,6 +130,8 @@ typedef function<void(int)> IntParamEvent;
 
 #include "Framework/Environment/Camera.h"
 #include "Framework/Environment/Environment.h"
+#include "Framework/Environment/Reflection.h"
+#include "Framework/Environment/Refraction.h"
 
 #include "Framework/Model/ModelData.h"
 #include "Framework/Model/ModelExporter.h"
@@ -162,6 +164,7 @@ typedef function<void(int)> IntParamEvent;
 #include "Objects/Landscape/Terrain.h"
 #include "Objects/Landscape/TerrainEditor.h"
 #include "Objects/Landscape/Skybox.h"
+#include "Objects/Landscape/Water.h"
 
 #include "Objects/Manager/PoolingManager.h"
 

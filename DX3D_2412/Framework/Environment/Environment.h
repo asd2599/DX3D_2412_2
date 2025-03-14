@@ -41,7 +41,7 @@ private:
 
     SamplerState* samplerState;
     RasterizerState* rasterizerState[2];
-    BlendState* blendState[2];
+    BlendState* blendState[3];
     DepthStencilState* depthStencilState[2];
 
     D3D11_VIEWPORT viewport;
