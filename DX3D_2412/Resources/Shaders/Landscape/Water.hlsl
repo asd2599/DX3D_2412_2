@@ -69,7 +69,7 @@ float4 PS(PixelInput input) : SV_TARGET
 	
     float4 refractionColor = refractionMap.Sample(samp, uv);    
     
-    //float3 viewDir = normalize(input.worldPos - invView._41_42_43);		
+    float3 viewDir = normalize(input.worldPos - invView._41_42_43);		
     //float fresnelTerm = 0.02f + 0.97f * pow((1 - dot(viewDir, normal.xyz)), 5);
 	//float fresnelTerm = 1 - (dot(viewDir, normal.xyz) * 1.3f);
     float4 albedo = lerp(reflectionColor, refractionColor, saturate(fresnel));    

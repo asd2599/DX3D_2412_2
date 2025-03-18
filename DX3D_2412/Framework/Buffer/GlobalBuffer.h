@@ -196,3 +196,50 @@ public:
 private:
     Data data;
 };
+
+class SpriteBuffer : public ConstBuffer
+{
+private:
+    struct Data
+    {
+        Float2 maxFrame;
+        Float2 curFrame;
+    };
+public:
+    SpriteBuffer() : ConstBuffer(&data, sizeof(Data))
+    {
+    }
+
+    Data& Get() { return data; }
+
+private:
+    Data data;
+};
+
+class WeatherBuffer : public ConstBuffer
+{
+public:
+    struct Data
+    {
+        Float3 velocity = { 0, -1, 0 };
+        float distance = 100.0f;
+
+        Float4 color = { 1, 1, 1, 1 };
+
+        Float3 origin = {};
+        float time = 0.0f;
+
+        Float3 size = { 50, 50, 50 };
+        float turbulence = 0.1f;
+    };
+
+public:
+    WeatherBuffer() : ConstBuffer(&data, sizeof(Data))
+    {
+    };
+
+    Data* GetData() { return &data; }
+
+private:
+    Data data;
+};

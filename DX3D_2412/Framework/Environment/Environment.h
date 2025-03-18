@@ -21,6 +21,9 @@ public:
 
     void SetAlphaBlend(bool isAlpha);
     void SetAdditive();
+    void SetAlphaToCoverage();
+    void SetDepthEnable(bool isDepthEnable);
+    void SetDepthWriteMask(D3D11_DEPTH_WRITE_MASK mask);
 
     void SetViewport(UINT width = SCREEN_WIDTH, UINT height = SCREEN_HEIGHT);
 
@@ -42,7 +45,7 @@ private:
     SamplerState* samplerState;
     RasterizerState* rasterizerState[2];
     BlendState* blendState[3];
-    DepthStencilState* depthStencilState[2];
+    DepthStencilState* depthStencilState[3];
 
     D3D11_VIEWPORT viewport;
 

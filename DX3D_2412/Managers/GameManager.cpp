@@ -23,6 +23,8 @@
 #include "Scenes/RenderTargetScene.h"
 #include "Scenes/OutlineScene.h"
 #include "Scenes/WaterScene.h"
+#include "Scenes/BillboardScene.h"
+#include "Scenes/WeatherScene.h"
 
 GameManager::GameManager()
 {
@@ -46,9 +48,11 @@ GameManager::GameManager()
 	//SCENE->Create("Start", new AStarScene());
 	//SCENE->Create("Start", new RenderTargetScene());
 	//SCENE->Create("Start", new OutlineScene());	
-	SCENE->Create("Start", new WaterScene());	
+	//SCENE->Create("Start", new WaterScene());	
+	//SCENE->Create("Start", new BillboardScene());	
+	SCENE->Create("Start", new WeatherScene());	
 
-	//SCENE->Add("Grid");
+	SCENE->Add("Grid");
 	SCENE->Add("Start");
 
 	Create();
