@@ -174,6 +174,7 @@ typedef function<void(int)> IntParamEvent;
 #include "Objects/Particle/Sprite.h"
 #include "Objects/Particle/Rain.h"
 #include "Objects/Particle/Snow.h"
+#include "Objects/Particle/ParticleSystem.h"
 
 #include "Objects/Test/Planet.h"
 #include "Objects/Test/TestModel.h"

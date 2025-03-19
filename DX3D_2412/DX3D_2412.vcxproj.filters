@@ -369,6 +369,12 @@
     <ClInclude Include="Objects\Particle\Rain.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Scenes\ParticleEditorScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\Particle\ParticleSystem.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DX3D_2412.cpp">
@@ -689,6 +695,12 @@
     <ClCompile Include="Objects\Particle\Rain.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Scenes\ParticleEditorScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\Particle\ParticleSystem.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX3D_2412.rc">
@@ -736,6 +748,7 @@
     <FxCompile Include="Resources\Shaders\Geometry\Spark.hlsl" />
     <FxCompile Include="Resources\Shaders\Geometry\Rain.hlsl" />
     <FxCompile Include="Resources\Shaders\Geometry\Snow.hlsl" />
+    <FxCompile Include="Resources\Shaders\Instancing\Particle.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Shaders\VertexHeader.hlsli" />

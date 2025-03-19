@@ -218,6 +218,7 @@
     <ClInclude Include="Objects\Pacman\CubeMapEditor.h" />
     <ClInclude Include="Objects\Pacman\MapManager.h" />
     <ClInclude Include="Objects\Particle\Particle.h" />
+    <ClInclude Include="Objects\Particle\ParticleSystem.h" />
     <ClInclude Include="Objects\Particle\Rain.h" />
     <ClInclude Include="Objects\Particle\Snow.h" />
     <ClInclude Include="Objects\Particle\Spark.h" />
@@ -247,6 +248,7 @@
     <ClInclude Include="Scenes\ModelRenderScene.h" />
     <ClInclude Include="Scenes\OutlineScene.h" />
     <ClInclude Include="Scenes\PacmanScene.h" />
+    <ClInclude Include="Scenes\ParticleEditorScene.h" />
     <ClInclude Include="Scenes\RenderTargetScene.h" />
     <ClInclude Include="Scenes\Scene.h" />
     <ClInclude Include="Scenes\ShootingScene.h" />
@@ -331,6 +333,7 @@
     <ClCompile Include="Objects\Pacman\CubeMapEditor.cpp" />
     <ClCompile Include="Objects\Pacman\MapManager.cpp" />
     <ClCompile Include="Objects\Particle\Particle.cpp" />
+    <ClCompile Include="Objects\Particle\ParticleSystem.cpp" />
     <ClCompile Include="Objects\Particle\Rain.cpp" />
     <ClCompile Include="Objects\Particle\Snow.cpp" />
     <ClCompile Include="Objects\Particle\Spark.cpp" />
@@ -359,6 +362,7 @@
     <ClCompile Include="Scenes\ModelRenderScene.cpp" />
     <ClCompile Include="Scenes\OutlineScene.cpp" />
     <ClCompile Include="Scenes\PacmanScene.cpp" />
+    <ClCompile Include="Scenes\ParticleEditorScene.cpp" />
     <ClCompile Include="Scenes\RenderTargetScene.cpp" />
     <ClCompile Include="Scenes\ShootingScene.cpp" />
     <ClCompile Include="Scenes\SolaSystemScene.cpp" />
@@ -466,6 +470,12 @@
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
     </FxCompile>
     <FxCompile Include="Resources\Shaders\Instancing\ModelInstancing.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+    </FxCompile>
+    <FxCompile Include="Resources\Shaders\Instancing\Particle.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>

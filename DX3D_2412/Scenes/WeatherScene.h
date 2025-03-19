@@ -14,5 +14,6 @@ public:
 
 private:
 	BoxCollider* collider;
-	Particle* particle;
+	//Particle* particle;
+	ParticleSystem* particle;
 };

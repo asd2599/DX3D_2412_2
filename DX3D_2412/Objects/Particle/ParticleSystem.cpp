@@ -5,26 +5,12 @@ ParticleSystem::ParticleSystem(string file)
     Load(file);
 
     instanceBuffer = new VertexBuffer(instances.data(), sizeof(Matrix), data.count);
-
-    blendState[0] = new BlendState();
-    blendState[1] = new BlendState();
-    blendState[1]->Alpha(true);
-
-    depthState[0] = new DepthStencilState();
-    depthState[1] = new DepthStencilState();
-    depthState[1]->DepthWriteMask(D3D11_DEPTH_WRITE_MASK_ZERO);
 }
 
 ParticleSystem::~ParticleSystem()
 {
     delete quad;
     delete instanceBuffer;
-
-    delete blendState[0];
-    delete blendState[1];
-
-    delete depthState[0];
-    delete depthState[1];
 }
 
 void ParticleSystem::Update()
@@ -52,13 +38,15 @@ void ParticleSystem::Render()
 
     instanceBuffer->Set(1);
     
-    blendState[1]->SetState();
-    depthState[1]->SetState();
+    if (data.isAdditive)
+        Environment::Get()->SetAdditive();
+    else
+        Environment::Get()->SetAlphaBlend(true);
 
     quad->RenderInstanced(data.count);
 
-    blendState[0]->SetState();
-    depthState[0]->SetState();
+    Environment::Get()->SetAlphaBlend(false);
+    Environment::Get()->SetDepthWriteMask(D3D11_DEPTH_WRITE_MASK_ALL);
 }
 
 void ParticleSystem::Play(Vector3 pos, Vector3 rot)
@@ -88,7 +76,7 @@ void ParticleSystem::UpdatePhysical()
         particleInfos[i].transform.Translate(
             particleInfos[i].velocity * particleInfos[i].speed * DELTA);
         particleInfos[i].transform.Rotate(
-            Vector3::Forward() * particleInfos[i].angularVelocity * DELTA);
+            Vector3::Forward(), particleInfos[i].angularVelocity * DELTA);
         if (data.isBillboard)
         {
             Vector3 rot = CAM->GetLocalRotation();
@@ -99,7 +87,7 @@ void ParticleSystem::UpdatePhysical()
         float t = (lifeTime - particleInfos[i].startTime)
             / (data.duration - particleInfos[i].startTime);
 
-        Vector3 scale = MATH->Lerp(particleInfos[i].startScale, particleInfos[i].endScale, t);
+        Vector3 scale = GameMath::Lerp(particleInfos[i].startScale, particleInfos[i].endScale, t);
         particleInfos[i].transform.SetLocalScale(scale);
 
         particleInfos[i].transform.UpdateWorld();
@@ -114,21 +102,16 @@ void ParticleSystem::UpdateColor()
     float t = lifeTime / data.duration;
 
     Float4 color;
-    color.x = MATH->Lerp(data.startColor.x, data.endColor.x, t);
-    color.y = MATH->Lerp(data.startColor.y, data.endColor.y, t);
-    color.z = MATH->Lerp(data.startColor.z, data.endColor.z, t);
-    color.w = MATH->Lerp(data.startColor.w, data.endColor.w, t);
+    color.x = GameMath::Lerp(data.startColor.x, data.endColor.x, t);
+    color.y = GameMath::Lerp(data.startColor.y, data.endColor.y, t);
+    color.z = GameMath::Lerp(data.startColor.z, data.endColor.z, t);
+    color.w = GameMath::Lerp(data.startColor.w, data.endColor.w, t);
 
-    quad->GetMaterial()->GetBuffer()->diffuse = color;
+    quad->GetMaterial()->GetData()->diffuse = color;
 }
 
 void ParticleSystem::Init()
 {
-    if (data.isAdditive)
-        blendState[1]->Additive();
-    else
-        blendState[1]->Alpha(true);
-
     lifeTime = 0.0f;
     drawCount = 0;
     data.count = particleCount;
@@ -138,15 +121,15 @@ void ParticleSystem::Init()
 
     for (ParticleInfo& info : particleInfos)
     {
-        info.transform.SetLocalPosition(MATH->Random(data.minStartPos, data.maxStartPos));
-        info.velocity = MATH->Random(data.minVelocity, data.maxVelocity);
-        info.accelation = MATH->Random(data.minAccelation, data.maxAccelation);
-        info.angularVelocity = MATH->Random(data.minAngularVelocity, data.maxAngularVelocity);
-        info.speed = MATH->Random(data.minSpeed, data.maxSpeed);
-        info.startTime = MATH->Random(data.minStartTime, data.maxStartTime);
-        info.startScale = MATH->Random(data.minStartScale, data.maxStartScale);
-        info.endScale = MATH->Random(data.minEndScale, data.maxEndScale);
-        info.velocity = MATH->Random(data.minVelocity, data.maxVelocity);
+        info.transform.SetLocalPosition(GameMath::Random(data.minStartPos, data.maxStartPos));
+        info.velocity = GameMath::Random(data.minVelocity, data.maxVelocity);
+        info.accelation = GameMath::Random(data.minAccelation, data.maxAccelation);
+        info.angularVelocity = GameMath::Random(data.minAngularVelocity, data.maxAngularVelocity);
+        info.speed = GameMath::Random(data.minSpeed, data.maxSpeed);
+        info.startTime = GameMath::Random(data.minStartTime, data.maxStartTime);
+        info.startScale = GameMath::Random(data.minStartScale, data.maxStartScale);
+        info.endScale = GameMath::Random(data.minEndScale, data.maxEndScale);
+        info.velocity = GameMath::Random(data.minVelocity, data.maxVelocity);
         info.velocity.Normalize();
     }
 }
@@ -154,6 +137,9 @@ void ParticleSystem::Init()
 void ParticleSystem::Load(string file)
 {
     BinaryReader* reader = new BinaryReader(file);
+
+    if (reader->IsFailed())
+        assert(false);
 
     wstring textureFile = reader->WString();
     quad = new Quad(Float2(1, 1));

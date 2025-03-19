@@ -25,6 +25,7 @@
 #include "Scenes/WaterScene.h"
 #include "Scenes/BillboardScene.h"
 #include "Scenes/WeatherScene.h"
+#include "Scenes/ParticleEditorScene.h"
 
 GameManager::GameManager()
 {
@@ -51,6 +52,7 @@ GameManager::GameManager()
 	//SCENE->Create("Start", new WaterScene());	
 	//SCENE->Create("Start", new BillboardScene());	
 	SCENE->Create("Start", new WeatherScene());	
+	//SCENE->Create("Start", new ParticleEditorScene());	
 
 	SCENE->Add("Grid");
 	SCENE->Add("Start");
