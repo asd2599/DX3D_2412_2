@@ -16,4 +16,5 @@ private:
 	Terrain* terrain;
 	Ghost* ghost;
 	AStar* aStar;
+	ParticleSystem* particle;
 };

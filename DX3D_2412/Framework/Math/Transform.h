@@ -46,6 +46,7 @@ public:
 	void SetLocalScale(const Vector3& scale) { localScale = scale; }
 
 	void SetGlobalPosition(const Vector3& position);
+	void SetGlobalRotation(const Vector3& rotation);
 
 	void SetLocalPosition(const float& x, const float& y, const float& z) { localPosition = Vector3(x, y, z); }
 	void SetLocalRotation(const float& x, const float& y, const float& z) { localRotation = Vector3(x, y, z); }

@@ -3,7 +3,9 @@
 
 WeatherScene::WeatherScene()
 {
-	collider = new BoxCollider(Vector3(50, 50, 1));	
+	//collider = new BoxCollider(Vector3(50, 50, 1));	
+	collider = new SphereCollider(50);	
+    
 	//particle = new Sprite(L"Resources/Textures/FX/Lightning_8x1.png", 50, 10, 1, 8);
     //particle = new Spark(L"Resources/Textures/FX/star.png", true);
     //particle = new Rain();
@@ -27,6 +29,10 @@ void WeatherScene::Update()
         if (collider->IsRayCollision(ray, &hit))
         {
             particle->Play(hit.point);
+
+            Vector3 rot;
+            rot.x = atan2(hit.normal.x, hit.normal.z);
+            particle->SetLocalRotation(rot);
         }
     }
 

@@ -51,6 +51,8 @@ void Ghost::Control()
 		int end = aStar->FindCloseNode(destPos);
 
 		aStar->GetPath(start, end, path);
+
+		Audio::Get()->Play("Pick");
 	}
 }
 

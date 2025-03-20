@@ -75,6 +75,11 @@ using namespace DirectX::TriangleTests;
 
 #pragma comment(lib, "assimp-vc143-mtd.lib")
 
+//FMOD
+#include <FMOD/fmod.hpp>
+
+#pragma comment(lib, "fmod_vc.lib")
+
 typedef XMMATRIX Matrix;
 typedef XMFLOAT4 Float4;
 typedef XMFLOAT3 Float3;
@@ -101,6 +106,7 @@ typedef function<void(int)> IntParamEvent;
 #include "Framework/Utility/Font.h"
 #include "Framework/Utility/Observer.h"
 #include "Framework/Utility/tinyxml2.h"
+#include "Framework/Utility/Audio.h"
 
 #include "Framework/Device/Device.h"
 

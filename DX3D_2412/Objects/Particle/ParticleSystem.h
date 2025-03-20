@@ -1,6 +1,6 @@
 #pragma once
 
-class ParticleSystem
+class ParticleSystem : public Quad
 {
 private:
     struct ParticleData
@@ -53,8 +53,6 @@ public:
     void Play(Vector3 pos, Vector3 rot = Vector3());
     void Stop();
 
-    bool IsActive() { return quad->IsActive(); }
-
 private:
     void UpdatePhysical();
     void UpdateColor();
@@ -63,8 +61,6 @@ private:
     void Load(string file);
 
 private:
-    Quad* quad;
-
     vector<Matrix> instances;
     vector<ParticleInfo> particleInfos;
 

@@ -46,12 +46,12 @@ GameManager::GameManager()
 	//SCENE->Create("Start", new ModelAnimationScene());
 	//SCENE->Create("Start", new ModelEquipScene());
 	//SCENE->Create("Start", new MapEditorScene());
-	//SCENE->Create("Start", new AStarScene());
+	SCENE->Create("Start", new AStarScene());
 	//SCENE->Create("Start", new RenderTargetScene());
 	//SCENE->Create("Start", new OutlineScene());	
 	//SCENE->Create("Start", new WaterScene());	
 	//SCENE->Create("Start", new BillboardScene());	
-	SCENE->Create("Start", new WeatherScene());	
+	//SCENE->Create("Start", new WeatherScene());	
 	//SCENE->Create("Start", new ParticleEditorScene());	
 
 	SCENE->Add("Grid");
@@ -69,6 +69,7 @@ void GameManager::Update()
 {
 	Keyboard::Get()->Update();
 	Timer::Get()->Update();
+	Audio::Get()->Update();
 
 	SCENE->Update();
 
@@ -117,6 +118,7 @@ void GameManager::Create()
 	SceneManager::Get();
 	Font::Get();
 	Observer::Get();
+	Audio::Get();
 
 	ImGui::CreateContext();
 	ImGui::StyleColorsDark();
@@ -140,6 +142,7 @@ void GameManager::Release()
 	SceneManager::Delete();
 	Font::Delete();
 	Observer::Delete();
+	Audio::Delete();
 
 	Shader::Delete();
 	Texture::Delete();

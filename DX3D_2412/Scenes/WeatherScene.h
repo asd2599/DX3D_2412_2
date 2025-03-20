@@ -13,7 +13,7 @@ public:
 	virtual void GUIRender() override;
 
 private:
-	BoxCollider* collider;
+	Collider* collider;
 	//Particle* particle;
 	ParticleSystem* particle;
 };
