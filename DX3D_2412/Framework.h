@@ -139,6 +139,7 @@ typedef function<void(int)> IntParamEvent;
 #include "Framework/Environment/Environment.h"
 #include "Framework/Environment/Reflection.h"
 #include "Framework/Environment/Refraction.h"
+#include "Framework/Environment/Shadow.h"
 
 #include "Framework/Model/ModelData.h"
 #include "Framework/Model/ModelExporter.h"

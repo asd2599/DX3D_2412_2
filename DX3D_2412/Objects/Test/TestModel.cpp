@@ -37,7 +37,7 @@ void TestModel::Update()
 
 void TestModel::Render()
 {
-    skybox->Render();
+    //skybox->Render();
 
     sphere->Render();
     model->Render();

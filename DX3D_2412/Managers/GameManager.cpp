@@ -26,6 +26,7 @@
 #include "Scenes/BillboardScene.h"
 #include "Scenes/WeatherScene.h"
 #include "Scenes/ParticleEditorScene.h"
+#include "Scenes/ShadowScene.h"
 
 GameManager::GameManager()
 {
@@ -46,15 +47,16 @@ GameManager::GameManager()
 	//SCENE->Create("Start", new ModelAnimationScene());
 	//SCENE->Create("Start", new ModelEquipScene());
 	//SCENE->Create("Start", new MapEditorScene());
-	SCENE->Create("Start", new AStarScene());
+	//SCENE->Create("Start", new AStarScene());
 	//SCENE->Create("Start", new RenderTargetScene());
 	//SCENE->Create("Start", new OutlineScene());	
 	//SCENE->Create("Start", new WaterScene());	
 	//SCENE->Create("Start", new BillboardScene());	
 	//SCENE->Create("Start", new WeatherScene());	
 	//SCENE->Create("Start", new ParticleEditorScene());	
+	SCENE->Create("Start", new ShadowScene());	
 
-	SCENE->Add("Grid");
+	//SCENE->Add("Grid");
 	SCENE->Add("Start");
 
 	Create();

@@ -378,6 +378,12 @@
     <ClInclude Include="Framework\Utility\Audio.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Scenes\ShadowScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Environment\Shadow.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DX3D_2412.cpp">
@@ -707,6 +713,12 @@
     <ClCompile Include="Framework\Utility\Audio.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Scenes\ShadowScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Environment\Shadow.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX3D_2412.rc">
@@ -755,6 +767,8 @@
     <FxCompile Include="Resources\Shaders\Geometry\Rain.hlsl" />
     <FxCompile Include="Resources\Shaders\Geometry\Snow.hlsl" />
     <FxCompile Include="Resources\Shaders\Instancing\Particle.hlsl" />
+    <FxCompile Include="Resources\Shaders\Light\DepthMap.hlsl" />
+    <FxCompile Include="Resources\Shaders\Light\Shadow.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Shaders\VertexHeader.hlsli" />

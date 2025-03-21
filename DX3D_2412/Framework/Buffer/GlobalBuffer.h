@@ -94,7 +94,7 @@ public:
         Float3 direction = { 0, -1, 1 };
         float attentionIntensity = 1.0f;
 
-        Float3 position;
+        Float3 position = { 0, 5, -5 };
         float range = 10.0f;
 
         float inner = 55.0f;
