@@ -39,3 +39,15 @@ void ConstBuffer::SetGS(UINT slot)
     DC->UpdateSubresource(buffer, 0, nullptr, data, 0, 0);
     DC->GSSetConstantBuffers(slot, 1, &buffer);
 }
+
+void ConstBuffer::SetHS(UINT slot)
+{
+    DC->UpdateSubresource(buffer, 0, nullptr, data, 0, 0);
+    DC->HSSetConstantBuffers(slot, 1, &buffer);
+}
+
+void ConstBuffer::SetDS(UINT slot)
+{
+    DC->UpdateSubresource(buffer, 0, nullptr, data, 0, 0);
+    DC->DSSetConstantBuffers(slot, 1, &buffer);
+}

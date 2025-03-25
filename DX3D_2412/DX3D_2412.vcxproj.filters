@@ -384,6 +384,21 @@
     <ClInclude Include="Framework\Environment\Shadow.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Scenes\ModelAnimationInstancingScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Model\ModelAnimatorInstancing.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scenes\TessellationScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Shader\DomainShader.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Shader\HullShader.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DX3D_2412.cpp">
@@ -719,6 +734,21 @@
     <ClCompile Include="Framework\Environment\Shadow.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Scenes\ModelAnimationInstancingScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Model\ModelAnimatorInstancing.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Scenes\TessellationScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Shader\DomainShader.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Shader\HullShader.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX3D_2412.rc">
@@ -769,6 +799,9 @@
     <FxCompile Include="Resources\Shaders\Instancing\Particle.hlsl" />
     <FxCompile Include="Resources\Shaders\Light\DepthMap.hlsl" />
     <FxCompile Include="Resources\Shaders\Light\Shadow.hlsl" />
+    <FxCompile Include="Resources\Shaders\Instancing\ModelAnimatorInstancing.hlsl" />
+    <FxCompile Include="Resources\Shaders\TS\Triangle.hlsl" />
+    <FxCompile Include="Resources\Shaders\TS\Rectangle.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Shaders\VertexHeader.hlsli" />

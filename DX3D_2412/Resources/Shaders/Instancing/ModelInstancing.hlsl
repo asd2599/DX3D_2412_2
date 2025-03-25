@@ -11,17 +11,6 @@ struct VertexInput
     matrix transform : INSTANCE_TRANSFORM;
 };
 
-struct PixelInput
-{
-    float4 pos : SV_POSITION;
-    float2 uv : UV;
-    float3 normal : NORMAL;
-    float3 tangent : TANGENT;
-    float3 binormal : BINORMAL;
-    float3 worldPos : POSITION0;
-    float3 viewPos : POSITION1;
-};
-
 LightPixelInput VS(VertexInput input)
 {
     LightPixelInput output;

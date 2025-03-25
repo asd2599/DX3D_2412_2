@@ -115,6 +115,8 @@ typedef function<void(int)> IntParamEvent;
 #include "Framework/Shader/PixelShader.h"
 #include "Framework/Shader/ComputeShader.h"
 #include "Framework/Shader/GeometryShader.h"
+#include "Framework/Shader/HullShader.h"
+#include "Framework/Shader/DomainShader.h"
 
 #include "Framework/Buffer/VertexBuffer.h"
 #include "Framework/Buffer/IndexBuffer.h"
@@ -148,6 +150,7 @@ typedef function<void(int)> IntParamEvent;
 #include "Framework/Model/ModelInstancing.h"
 #include "Framework/Model/ModelClip.h"
 #include "Framework/Model/ModelAnimator.h"
+#include "Framework/Model/ModelAnimatorInstancing.h"
 
 //GameObject Head
 #include "Objects/Basic/GameObject.h"

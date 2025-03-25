@@ -160,6 +160,7 @@
     <ClInclude Include="Framework\Math\Vector2.h" />
     <ClInclude Include="Framework\Math\Vector3.h" />
     <ClInclude Include="Framework\Model\Model.h" />
+    <ClInclude Include="Framework\Model\ModelAnimatorInstancing.h" />
     <ClInclude Include="Framework\Model\ModelAnimator.h" />
     <ClInclude Include="Framework\Model\ModelClip.h" />
     <ClInclude Include="Framework\Model\ModelData.h" />
@@ -172,7 +173,9 @@
     <ClInclude Include="Framework\Render\RenderTarget.h" />
     <ClInclude Include="Framework\Render\Texture.h" />
     <ClInclude Include="Framework\Shader\ComputeShader.h" />
+    <ClInclude Include="Framework\Shader\DomainShader.h" />
     <ClInclude Include="Framework\Shader\GeometryShader.h" />
+    <ClInclude Include="Framework\Shader\HullShader.h" />
     <ClInclude Include="Framework\Shader\PixelShader.h" />
     <ClInclude Include="Framework\Shader\Shader.h" />
     <ClInclude Include="Framework\Shader\VertexShader.h" />
@@ -243,6 +246,7 @@
     <ClInclude Include="Scenes\LightScene.h" />
     <ClInclude Include="Scenes\MapEditorScene.h" />
     <ClInclude Include="Scenes\MineCraftScene.h" />
+    <ClInclude Include="Scenes\ModelAnimationInstancingScene.h" />
     <ClInclude Include="Scenes\ModelAnimationScene.h" />
     <ClInclude Include="Scenes\ModelEquipScene.h" />
     <ClInclude Include="Scenes\ModelExportScene.h" />
@@ -259,6 +263,7 @@
     <ClInclude Include="Scenes\SpawnScene.h" />
     <ClInclude Include="Scenes\SphereScene.h" />
     <ClInclude Include="Scenes\TerrainScene.h" />
+    <ClInclude Include="Scenes\TessellationScene.h" />
     <ClInclude Include="Scenes\TutorialScene.h" />
     <ClInclude Include="Scenes\WaterScene.h" />
     <ClInclude Include="Scenes\WeatherScene.h" />
@@ -284,6 +289,7 @@
     <ClCompile Include="Framework\Math\Transform.cpp" />
     <ClCompile Include="Framework\Model\Model.cpp" />
     <ClCompile Include="Framework\Model\ModelAnimator.cpp" />
+    <ClCompile Include="Framework\Model\ModelAnimatorInstancing.cpp" />
     <ClCompile Include="Framework\Model\ModelClip.cpp" />
     <ClCompile Include="Framework\Model\ModelExporter.cpp" />
     <ClCompile Include="Framework\Model\ModelInstancing.cpp" />
@@ -293,7 +299,9 @@
     <ClCompile Include="Framework\Render\RenderTarget.cpp" />
     <ClCompile Include="Framework\Render\Texture.cpp" />
     <ClCompile Include="Framework\Shader\ComputeShader.cpp" />
+    <ClCompile Include="Framework\Shader\DomainShader.cpp" />
     <ClCompile Include="Framework\Shader\GeometryShader.cpp" />
+    <ClCompile Include="Framework\Shader\HullShader.cpp" />
     <ClCompile Include="Framework\Shader\PixelShader.cpp" />
     <ClCompile Include="Framework\Shader\Shader.cpp" />
     <ClCompile Include="Framework\Shader\VertexShader.cpp" />
@@ -360,6 +368,7 @@
     <ClCompile Include="Scenes\LightScene.cpp" />
     <ClCompile Include="Scenes\MapEditorScene.cpp" />
     <ClCompile Include="Scenes\MineCraftScene.cpp" />
+    <ClCompile Include="Scenes\ModelAnimationInstancingScene.cpp" />
     <ClCompile Include="Scenes\ModelAnimationScene.cpp" />
     <ClCompile Include="Scenes\ModelEquipScene.cpp" />
     <ClCompile Include="Scenes\ModelExportScene.cpp" />
@@ -375,6 +384,7 @@
     <ClCompile Include="Scenes\SpawnScene.cpp" />
     <ClCompile Include="Scenes\SphereScene.cpp" />
     <ClCompile Include="Scenes\TerrainScene.cpp" />
+    <ClCompile Include="Scenes\TessellationScene.cpp" />
     <ClCompile Include="Scenes\TutorialScene.cpp" />
     <ClCompile Include="Scenes\WaterScene.cpp" />
     <ClCompile Include="Scenes\WeatherScene.cpp" />
@@ -470,6 +480,12 @@
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
     </FxCompile>
     <FxCompile Include="Resources\Shaders\Geometry\Sprite.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+    </FxCompile>
+    <FxCompile Include="Resources\Shaders\Instancing\ModelAnimatorInstancing.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
@@ -595,6 +611,18 @@
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+    </FxCompile>
+    <FxCompile Include="Resources\Shaders\TS\Rectangle.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+    </FxCompile>
+    <FxCompile Include="Resources\Shaders\TS\Triangle.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
     </FxCompile>
     <FxCompile Include="Resources\Shaders\Tutorial.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>

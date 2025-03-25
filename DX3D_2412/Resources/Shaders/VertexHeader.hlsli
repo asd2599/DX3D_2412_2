@@ -1,4 +1,5 @@
 //VertexLayouts
+#define MAX_INSTANCE 128
 
 struct Vertex
 {
@@ -82,6 +83,11 @@ cbuffer FrameBuffer : register(b3)
     Motion motion;
 }
 
+cbuffer FrameBuffer : register(b4)
+{
+    Motion motions[MAX_INSTANCE];
+}
+
 Texture2DArray transformMap : register(t0);
 
 matrix LoadTransform(int index, int frame, int clip)
@@ -124,5 +130,40 @@ matrix SkinWorld(float4 indices, float4 weights)
         transform += weights[i] * curAnim;
     }
     
+    return transform;
+}
+
+matrix SkinWorld(int instanceIndex, float4 indices, float4 weights)
+{
+    matrix transform = 0;
+    matrix curAnim, nextAnim;
+    
+    for (int i = 0; i < 4; i++)
+    {
+        if (weights[i] == 0.0f)
+            continue;
+		
+        Motion motion = motions[instanceIndex];        
+        
+        int clip = motion.cur.clip;
+        int curFrame = motion.cur.curFrame;
+        
+        matrix cur = LoadTransform(indices[i], curFrame, clip);
+        matrix next = LoadTransform(indices[i], curFrame + 1, clip);
+        
+        curAnim = lerp(cur, next, motion.cur.time);
+        
+        if (motion.next.clip > -1)
+        {
+            matrix nextCur = LoadTransform(indices[i], motion.next.curFrame, motion.next.clip);
+            matrix nextNext = LoadTransform(indices[i], motion.next.curFrame + 1, motion.next.clip);
+            
+            nextAnim = lerp(nextCur, nextNext, motion.next.time);
+            curAnim = lerp(curAnim, nextAnim, motion.tweenTime);
+        }
+
+        transform += weights[i] * curAnim;
+    }
+
     return transform;
 }
