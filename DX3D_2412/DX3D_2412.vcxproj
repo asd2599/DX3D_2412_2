@@ -212,6 +212,7 @@
     <ClInclude Include="Objects\Landscape\Skybox.h" />
     <ClInclude Include="Objects\Landscape\Terrain.h" />
     <ClInclude Include="Objects\Landscape\TerrainEditor.h" />
+    <ClInclude Include="Objects\Landscape\TerrainLOD.h" />
     <ClInclude Include="Objects\Landscape\Water.h" />
     <ClInclude Include="Objects\Manager\PoolingManager.h" />
     <ClInclude Include="Objects\MineCraft\Block.h" />
@@ -262,6 +263,7 @@
     <ClInclude Include="Scenes\SolaSystemScene.h" />
     <ClInclude Include="Scenes\SpawnScene.h" />
     <ClInclude Include="Scenes\SphereScene.h" />
+    <ClInclude Include="Scenes\TerrainLODScene.h" />
     <ClInclude Include="Scenes\TerrainScene.h" />
     <ClInclude Include="Scenes\TessellationScene.h" />
     <ClInclude Include="Scenes\TutorialScene.h" />
@@ -336,6 +338,7 @@
     <ClCompile Include="Objects\Landscape\Skybox.cpp" />
     <ClCompile Include="Objects\Landscape\Terrain.cpp" />
     <ClCompile Include="Objects\Landscape\TerrainEditor.cpp" />
+    <ClCompile Include="Objects\Landscape\TerrainLOD.cpp" />
     <ClCompile Include="Objects\Landscape\Water.cpp" />
     <ClCompile Include="Objects\MineCraft\Block.cpp" />
     <ClCompile Include="Objects\MineCraft\BlockManager.cpp" />
@@ -383,6 +386,7 @@
     <ClCompile Include="Scenes\SolaSystemScene.cpp" />
     <ClCompile Include="Scenes\SpawnScene.cpp" />
     <ClCompile Include="Scenes\SphereScene.cpp" />
+    <ClCompile Include="Scenes\TerrainLODScene.cpp" />
     <ClCompile Include="Scenes\TerrainScene.cpp" />
     <ClCompile Include="Scenes\TessellationScene.cpp" />
     <ClCompile Include="Scenes\TutorialScene.cpp" />
@@ -613,6 +617,12 @@
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
     </FxCompile>
     <FxCompile Include="Resources\Shaders\TS\Rectangle.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+    </FxCompile>
+    <FxCompile Include="Resources\Shaders\TS\TerrainLOD.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>

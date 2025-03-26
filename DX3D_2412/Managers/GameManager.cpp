@@ -29,6 +29,7 @@
 #include "Scenes/ShadowScene.h"
 #include "Scenes/ModelAnimationInstancingScene.h"
 #include "Scenes/TessellationScene.h"
+#include "Scenes/TerrainLODScene.h"
 
 GameManager::GameManager()
 {
@@ -58,7 +59,8 @@ GameManager::GameManager()
 	//SCENE->Create("Start", new ParticleEditorScene());	
 	//SCENE->Create("Start", new ShadowScene());	
 	//SCENE->Create("Start", new ModelAnimationInstancingScene());
-	SCENE->Create("Start", new TessellationScene());
+	//SCENE->Create("Start", new TessellationScene());
+	SCENE->Create("Start", new TerrainLODScene());
 
 	//SCENE->Add("Grid");
 	SCENE->Add("Start");

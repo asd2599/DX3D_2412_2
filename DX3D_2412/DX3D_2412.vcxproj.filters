@@ -399,6 +399,12 @@
     <ClInclude Include="Framework\Shader\HullShader.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Scenes\TerrainLODScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\Landscape\TerrainLOD.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DX3D_2412.cpp">
@@ -749,6 +755,12 @@
     <ClCompile Include="Framework\Shader\HullShader.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Scenes\TerrainLODScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\Landscape\TerrainLOD.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX3D_2412.rc">
@@ -802,6 +814,7 @@
     <FxCompile Include="Resources\Shaders\Instancing\ModelAnimatorInstancing.hlsl" />
     <FxCompile Include="Resources\Shaders\TS\Triangle.hlsl" />
     <FxCompile Include="Resources\Shaders\TS\Rectangle.hlsl" />
+    <FxCompile Include="Resources\Shaders\TS\TerrainLOD.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Shaders\VertexHeader.hlsli" />

@@ -174,6 +174,7 @@ typedef function<void(int)> IntParamEvent;
 
 #include "Objects/Landscape/Terrain.h"
 #include "Objects/Landscape/TerrainEditor.h"
+#include "Objects/Landscape/TerrainLOD.h"
 #include "Objects/Landscape/Skybox.h"
 #include "Objects/Landscape/Water.h"
 

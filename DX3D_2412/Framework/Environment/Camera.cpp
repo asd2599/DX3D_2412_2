@@ -74,8 +74,11 @@ void Camera::SetView(UINT slot)
     view = XMMatrixInverse(nullptr, world);
 
     viewBuffer->Set(view, world);
-    viewBuffer->SetVS(slot);   
+    viewBuffer->SetVS(slot);
+    viewBuffer->SetHS(slot);
+    viewBuffer->SetDS(slot);
     projectionBuffer->SetVS(slot + 1);
+    projectionBuffer->SetDS(slot + 1);    
 }
 
 Ray Camera::ScreenPointToRay(const Vector3& screenPoint)
