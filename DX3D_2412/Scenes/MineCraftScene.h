@@ -22,4 +22,7 @@ private:
 	Quad* quad;
 
 	FloatValueBuffer* valueBuffer;
+
+	ImageFont* timerFont;
+	float time = 0.0f;
 };

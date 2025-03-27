@@ -405,6 +405,15 @@
     <ClInclude Include="Objects\Landscape\TerrainLOD.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Scenes\TrailScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\Particle\Trail.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\UI\ImageFont.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DX3D_2412.cpp">
@@ -761,6 +770,15 @@
     <ClCompile Include="Objects\Landscape\TerrainLOD.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Scenes\TrailScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\Particle\Trail.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\UI\ImageFont.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX3D_2412.rc">
@@ -772,6 +790,9 @@
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="DX3D_2412.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\..\..\..\..\Downloads\UnityBook-master\Resources\Textures\Trail.png">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>
@@ -815,6 +836,7 @@
     <FxCompile Include="Resources\Shaders\TS\Triangle.hlsl" />
     <FxCompile Include="Resources\Shaders\TS\Rectangle.hlsl" />
     <FxCompile Include="Resources\Shaders\TS\TerrainLOD.hlsl" />
+    <FxCompile Include="Resources\Shaders\FX\Sprite.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Shaders\VertexHeader.hlsli" />

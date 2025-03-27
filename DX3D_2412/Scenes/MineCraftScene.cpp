@@ -28,6 +28,11 @@ MineCraftScene::MineCraftScene()
 	valueBuffer = new FloatValueBuffer();
 	valueBuffer->Get()[1] = SCREEN_WIDTH;
 	valueBuffer->Get()[2] = SCREEN_HEIGHT;
+
+	timerFont = new ImageFont(L"Resources/Textures/UI/Font/");
+	timerFont->SetLocalPosition(CENTER.x, CENTER.y, 0);
+	timerFont->SetAligned(ImageFont::R);
+	timerFont->UpdateWorld();
 }
 
 MineCraftScene::~MineCraftScene()
@@ -43,10 +48,15 @@ MineCraftScene::~MineCraftScene()
 	delete quad;
 
 	delete valueBuffer;
+
+	delete timerFont;
 }
 
 void MineCraftScene::Update()
 {
+	time += DELTA * 100;
+	timerFont->SetValue((UINT)time);
+
 	if (KEY->Down(VK_F2))
 	{
 		CAM->SetTarget(nullptr);
@@ -92,6 +102,8 @@ void MineCraftScene::PostRender()
 	BlockManager::Get()->PostRender();
 	UIManager::Get()->Render();
 	player->PostRender();	
+
+	timerFont->Render();
 }
 
 void MineCraftScene::GUIRender()

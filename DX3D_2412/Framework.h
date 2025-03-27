@@ -171,6 +171,7 @@ typedef function<void(int)> IntParamEvent;
 
 #include "Objects/UI/Button.h"
 #include "Objects/UI/ProgressBar.h"
+#include "Objects/UI/ImageFont.h"
 
 #include "Objects/Landscape/Terrain.h"
 #include "Objects/Landscape/TerrainEditor.h"
@@ -186,6 +187,7 @@ typedef function<void(int)> IntParamEvent;
 #include "Objects/Particle/Rain.h"
 #include "Objects/Particle/Snow.h"
 #include "Objects/Particle/ParticleSystem.h"
+#include "Objects/Particle/Trail.h"
 
 #include "Objects/Test/Planet.h"
 #include "Objects/Test/TestModel.h"

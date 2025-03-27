@@ -1,13 +1,13 @@
 #pragma once
 
-class Trail : public GameObject
+class Trail : public GameObject<VertexUV>
 {
 private:
     const float FRAME_INTERVAL = 0.05f;
 
 public:
     Trail(wstring imageFile, Transform* start, Transform* end,
-        UINT width, float frameX = 1, float frameY = 1);
+        UINT width, float frameX = 1, float frameY = 1, bool isAdditive = true);
     ~Trail();
 
     void Update();
@@ -22,19 +22,16 @@ private:
     void UpdateFrame();
 
 private:
-    Mesh<VertexUV>* mesh;
-
     Transform* start, *end;
 
     UINT width;
-    float speed = 1.0f;
-
-    float time = 0.0f;
     UINT curFrame = 0;
+    float speed = 1.0f;
+    float time = 0.0f;    
     POINT maxFrame;
+    bool isAdditive;
 
     RasterizerState* rasterizerState[2];
-    BlendState* blendState[2];
 
-    FloatValueBuffer* frameBuffer;
+    SpriteBuffer* spriteBuffer;
 };

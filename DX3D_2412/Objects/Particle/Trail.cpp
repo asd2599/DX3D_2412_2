@@ -1,8 +1,8 @@
 #include "Framework.h"
 
 Trail::Trail(wstring imageFile, Transform* start, Transform* end,
-    UINT width, float frameX, float frameY)
-    : start(start), end(end), width(width)
+    UINT width, float frameX, float frameY, bool isAdditive)
+    : start(start), end(end), width(width), isAdditive(isAdditive)
 {
     material->SetShader(L"FX/Sprite.hlsl");
     material->SetDiffuseMap(imageFile);
@@ -11,15 +11,10 @@ Trail::Trail(wstring imageFile, Transform* start, Transform* end,
 
     rasterizerState[0] = new RasterizerState();
     rasterizerState[1] = new RasterizerState();
-    rasterizerState[1]->CullMode(D3D11_CULL_NONE);
+    rasterizerState[1]->CullMode(D3D11_CULL_NONE);    
 
-    blendState[0] = new BlendState();
-    blendState[1] = new BlendState();
-    blendState[1]->Additive();
-
-    frameBuffer = new FloatValueBuffer();
-    frameBuffer->GetData()[0] = frameX;
-    frameBuffer->GetData()[1] = frameY;
+    spriteBuffer = new SpriteBuffer;
+    spriteBuffer->Get().maxFrame = { frameX, frameY };
 
     maxFrame.x = (int)frameX;
     maxFrame.y = (int)frameY;
@@ -27,13 +22,10 @@ Trail::Trail(wstring imageFile, Transform* start, Transform* end,
 
 Trail::~Trail()
 {
-    delete mesh;
+    delete spriteBuffer;
 
     delete rasterizerState[0];
     delete rasterizerState[1];
-
-    delete blendState[0];
-    delete blendState[1];
 }
 
 void Trail::Update()
@@ -64,8 +56,8 @@ void Trail::Update()
             endDestPos = vertices[(i - 1) * 2 + 1].pos;
         }
 
-        startPos = MATH->Lerp(startPos, startDestPos, speed * DELTA);
-        endPos = MATH->Lerp(endPos, endDestPos, speed * DELTA);
+        startPos = GameMath::Lerp<Vector3>(startPos, startDestPos, speed * DELTA);
+        endPos = GameMath::Lerp<Vector3>(endPos, endDestPos, speed * DELTA);
 
         vertices[i * 2].pos = startPos;
         vertices[i * 2 + 1].pos = endPos;
@@ -80,16 +72,20 @@ void Trail::Render()
 {
     if (!IsActive()) return;
 
-    frameBuffer->SetPS(10);
-    SetRender();
+    spriteBuffer->SetPS(10);    
 
     rasterizerState[1]->SetState();
-    blendState[1]->SetState();
+    
+    if (isAdditive)
+        Environment::Get()->SetAdditive();
+    else
+        Environment::Get()->SetAlphaBlend(true);
 
-    mesh->Draw();
+    GameObject::Render();
 
     rasterizerState[0]->SetState();
-    blendState[0]->SetState();
+    
+    Environment::Get()->SetAlphaBlend(false);
 }
 
 void Trail::Init()
@@ -107,8 +103,6 @@ void Trail::Init()
 
 void Trail::CreateMesh()
 {
-    mesh = new Mesh<VertexUV>();
-    
     vector<VertexUV>& vertices = mesh->GetVertices();
 
     vertices.reserve((width + 1) * 2);
@@ -150,7 +144,7 @@ void Trail::UpdateFrame()
 
         curFrame = ++curFrame % (maxFrame.x * maxFrame.y);
 
-        frameBuffer->GetData()[2] = curFrame % maxFrame.x;
-        frameBuffer->GetData()[3] = curFrame / maxFrame.x;        
+        spriteBuffer->Get().curFrame.x = curFrame % maxFrame.x;
+        spriteBuffer->Get().curFrame.y = curFrame / maxFrame.x;
     }
 }

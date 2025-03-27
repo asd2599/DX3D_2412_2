@@ -30,6 +30,7 @@
 #include "Scenes/ModelAnimationInstancingScene.h"
 #include "Scenes/TessellationScene.h"
 #include "Scenes/TerrainLODScene.h"
+#include "Scenes/TrailScene.h"
 
 GameManager::GameManager()
 {
@@ -39,7 +40,7 @@ GameManager::GameManager()
 	//SCENE->Create("Start", new SpawnScene());
 	//SCENE->Create("Start", new CollisionScene());
 	//SCENE->Create("Start", new ShootingScene());
-	//SCENE->Create("Start", new MineCraftScene());
+	SCENE->Create("Start", new MineCraftScene());
 	//SCENE->Create("Start", new LightScene());
 	//SCENE->Create("Start", new TerrainScene());
 	//SCENE->Create("Start", new CubeMapEditorScene());
@@ -60,7 +61,8 @@ GameManager::GameManager()
 	//SCENE->Create("Start", new ShadowScene());	
 	//SCENE->Create("Start", new ModelAnimationInstancingScene());
 	//SCENE->Create("Start", new TessellationScene());
-	SCENE->Create("Start", new TerrainLODScene());
+	//SCENE->Create("Start", new TerrainLODScene());
+	//SCENE->Create("Start", new TrailScene());
 
 	//SCENE->Add("Grid");
 	SCENE->Add("Start");

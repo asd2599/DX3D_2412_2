@@ -229,6 +229,7 @@
     <ClInclude Include="Objects\Particle\Snow.h" />
     <ClInclude Include="Objects\Particle\Spark.h" />
     <ClInclude Include="Objects\Particle\Sprite.h" />
+    <ClInclude Include="Objects\Particle\Trail.h" />
     <ClInclude Include="Objects\Shooting\Bullet.h" />
     <ClInclude Include="Objects\Shooting\BulletManager.h" />
     <ClInclude Include="Objects\Shooting\Enemy.h" />
@@ -236,6 +237,7 @@
     <ClInclude Include="Objects\Test\Planet.h" />
     <ClInclude Include="Objects\Test\TestModel.h" />
     <ClInclude Include="Objects\UI\Button.h" />
+    <ClInclude Include="Objects\UI\ImageFont.h" />
     <ClInclude Include="Objects\UI\ProgressBar.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scenes\AStarScene.h" />
@@ -266,6 +268,7 @@
     <ClInclude Include="Scenes\TerrainLODScene.h" />
     <ClInclude Include="Scenes\TerrainScene.h" />
     <ClInclude Include="Scenes\TessellationScene.h" />
+    <ClInclude Include="Scenes\TrailScene.h" />
     <ClInclude Include="Scenes\TutorialScene.h" />
     <ClInclude Include="Scenes\WaterScene.h" />
     <ClInclude Include="Scenes\WeatherScene.h" />
@@ -354,6 +357,7 @@
     <ClCompile Include="Objects\Particle\Snow.cpp" />
     <ClCompile Include="Objects\Particle\Spark.cpp" />
     <ClCompile Include="Objects\Particle\Sprite.cpp" />
+    <ClCompile Include="Objects\Particle\Trail.cpp" />
     <ClCompile Include="Objects\Shooting\Bullet.cpp" />
     <ClCompile Include="Objects\Shooting\BulletManager.cpp" />
     <ClCompile Include="Objects\Shooting\Enemy.cpp" />
@@ -361,6 +365,7 @@
     <ClCompile Include="Objects\Test\Planet.cpp" />
     <ClCompile Include="Objects\Test\TestModel.cpp" />
     <ClCompile Include="Objects\UI\Button.cpp" />
+    <ClCompile Include="Objects\UI\ImageFont.cpp" />
     <ClCompile Include="Objects\UI\ProgressBar.cpp" />
     <ClCompile Include="Scenes\AStarScene.cpp" />
     <ClCompile Include="Scenes\BillboardScene.cpp" />
@@ -389,6 +394,7 @@
     <ClCompile Include="Scenes\TerrainLODScene.cpp" />
     <ClCompile Include="Scenes\TerrainScene.cpp" />
     <ClCompile Include="Scenes\TessellationScene.cpp" />
+    <ClCompile Include="Scenes\TrailScene.cpp" />
     <ClCompile Include="Scenes\TutorialScene.cpp" />
     <ClCompile Include="Scenes\WaterScene.cpp" />
     <ClCompile Include="Scenes\WeatherScene.cpp" />
@@ -397,6 +403,7 @@
     <ResourceCompile Include="DX3D_2412.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\..\..\..\Downloads\UnityBook-master\Resources\Textures\Trail.png" />
     <Image Include="DX3D_2412.ico" />
     <Image Include="small.ico" />
   </ItemGroup>
@@ -454,6 +461,12 @@
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
     </FxCompile>
     <FxCompile Include="Resources\Shaders\Custom\UnitOpaque.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+    </FxCompile>
+    <FxCompile Include="Resources\Shaders\FX\Sprite.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
